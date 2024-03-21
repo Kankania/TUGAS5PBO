@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Selamat datang di program simulasi.");
+        System.out.println("Silakan masukkan data-data yang diperlukan.");
+
+        System.out.print("Masukkan nama mahasiswa: ");
+        String namaMahasiswa = scanner.nextLine();
+
+        System.out.print("Masukkan nama dosen: ");
+        String namaDosen = scanner.nextLine();
+
+        System.out.print("Masukkan mata kuliah yang diampu: ");
+        String mataKuliah = scanner.nextLine();
+
+        System.out.print("Masukkan tahun ajaran: ");
+        int tahunAjaran = scanner.nextInt();
+
+        // Membuat objek Mahasiswa
+        Mahasiswa mahasiswa = new Mahasiswa(namaMahasiswa);
+
+        // Membuat objek Dosen
+        Dosen dosen = new Dosen(namaDosen, mataKuliah);
+
+        // Menampilkan informasi hasil input
+        System.out.println("\nData yang dimasukkan:");
+        System.out.println("Nama Mahasiswa: " + mahasiswa.getNama());
+        System.out.println("Nama Dosen: " + dosen.getNama());
+        System.out.println("Mata Kuliah yang Diampu: " + dosen.getMataKuliah());
+        System.out.println("Tahun Ajaran: " + tahunAjaran);
+
+        scanner.close();
+    }
+}
+
+// Kelas Mahasiswa
+class Mahasiswa {
+    private String nama;
+
+    public Mahasiswa(String nama) {
+        this.nama = nama;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+}
+
+// Kelas Dosen
+class Dosen {
+    private String nama;
+    private String mataKuliah;
+
+    public Dosen(String nama, String mataKuliah) {
+        this.nama = nama;
+        this.mataKuliah = mataKuliah;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public String getMataKuliah() {
+        return mataKuliah;
+    }
+}
